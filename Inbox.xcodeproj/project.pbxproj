@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		118A18CD288DEF1200D69164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18CC288DEF1200D69164 /* AppDelegate.swift */; };
 		118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18CE288DEF1200D69164 /* SceneDelegate.swift */; };
-		118A18D1288DEF1200D69164 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18D0288DEF1200D69164 /* ViewController.swift */; };
-		118A18D4288DEF1200D69164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118A18D2288DEF1200D69164 /* Main.storyboard */; };
+		118A18D1288DEF1200D69164 /* InboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18D0288DEF1200D69164 /* InboxVC.swift */; };
+		118A18D4288DEF1200D69164 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118A18D2288DEF1200D69164 /* Inbox.storyboard */; };
 		118A18D6288DEF1600D69164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 118A18D5288DEF1600D69164 /* Assets.xcassets */; };
 		118A18D9288DEF1600D69164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118A18D7288DEF1600D69164 /* LaunchScreen.storyboard */; };
+		118A18E4288DF7B200D69164 /* InboxVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18E3288DF7B200D69164 /* InboxVM.swift */; };
+		D157E6092381D99127E772CA /* Pods_Inbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		118A18C9288DEF1200D69164 /* Inbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118A18CC288DEF1200D69164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118A18CE288DEF1200D69164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		118A18D0288DEF1200D69164 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		118A18D3288DEF1200D69164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		118A18D0288DEF1200D69164 /* InboxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxVC.swift; sourceTree = "<group>"; };
+		118A18D3288DEF1200D69164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Inbox.storyboard; sourceTree = "<group>"; };
 		118A18D5288DEF1600D69164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118A18D8288DEF1600D69164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118A18DA288DEF1600D69164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		118A18E3288DF7B200D69164 /* InboxVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxVM.swift; sourceTree = "<group>"; };
+		69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73C4C4D2CDD75153AF40A575 /* Pods-Inbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inbox.release.xcconfig"; path = "Target Support Files/Pods-Inbox/Pods-Inbox.release.xcconfig"; sourceTree = "<group>"; };
+		A659119DAD131D4F12CB9172 /* Pods-Inbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inbox.debug.xcconfig"; path = "Target Support Files/Pods-Inbox/Pods-Inbox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D157E6092381D99127E772CA /* Pods_Inbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1CAB30910B6762C5ECD82C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A659119DAD131D4F12CB9172 /* Pods-Inbox.debug.xcconfig */,
+				73C4C4D2CDD75153AF40A575 /* Pods-Inbox.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		118A18C0288DEF1200D69164 = {
 			isa = PBXGroup;
 			children = (
 				118A18CB288DEF1200D69164 /* Inbox */,
 				118A18CA288DEF1200D69164 /* Products */,
+				0D1CAB30910B6762C5ECD82C /* Pods */,
+				1DCD75EF7FFB0310EE9AF9E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +74,80 @@
 		118A18CB288DEF1200D69164 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
-				118A18CC288DEF1200D69164 /* AppDelegate.swift */,
-				118A18CE288DEF1200D69164 /* SceneDelegate.swift */,
-				118A18D0288DEF1200D69164 /* ViewController.swift */,
-				118A18D2288DEF1200D69164 /* Main.storyboard */,
-				118A18D5288DEF1600D69164 /* Assets.xcassets */,
+				118A18E1288DF74C00D69164 /* Scene */,
+				118A18E8288DF7CE00D69164 /* Components */,
+				118A18E9288DF7D700D69164 /* Extensions */,
+				118A18E6288DF7BE00D69164 /* Services */,
+				118A18E7288DF7C500D69164 /* Utils */,
 				118A18D7288DEF1600D69164 /* LaunchScreen.storyboard */,
-				118A18DA288DEF1600D69164 /* Info.plist */,
+				118A18E0288DF1B400D69164 /* SupportingFiles */,
 			);
 			path = Inbox;
+			sourceTree = "<group>";
+		};
+		118A18E0288DF1B400D69164 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				118A18CC288DEF1200D69164 /* AppDelegate.swift */,
+				118A18CE288DEF1200D69164 /* SceneDelegate.swift */,
+				118A18D5288DEF1600D69164 /* Assets.xcassets */,
+				118A18DA288DEF1600D69164 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		118A18E1288DF74C00D69164 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				118A18E2288DF75300D69164 /* Inbox */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		118A18E2288DF75300D69164 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				118A18D2288DEF1200D69164 /* Inbox.storyboard */,
+				118A18D0288DEF1200D69164 /* InboxVC.swift */,
+				118A18E3288DF7B200D69164 /* InboxVM.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		118A18E6288DF7BE00D69164 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		118A18E7288DF7C500D69164 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		118A18E8288DF7CE00D69164 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		118A18E9288DF7D700D69164 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1DCD75EF7FFB0310EE9AF9E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 118A18DD288DEF1600D69164 /* Build configuration list for PBXNativeTarget "Inbox" */;
 			buildPhases = (
+				183E75651579D7A2FC650F1F /* [CP] Check Pods Manifest.lock */,
 				118A18C5288DEF1200D69164 /* Sources */,
 				118A18C6288DEF1200D69164 /* Frameworks */,
 				118A18C7288DEF1200D69164 /* Resources */,
+				0C4284C5380CE99D4A5FACDC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,32 +212,75 @@
 			files = (
 				118A18D9288DEF1600D69164 /* LaunchScreen.storyboard in Resources */,
 				118A18D6288DEF1600D69164 /* Assets.xcassets in Resources */,
-				118A18D4288DEF1200D69164 /* Main.storyboard in Resources */,
+				118A18D4288DEF1200D69164 /* Inbox.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C4284C5380CE99D4A5FACDC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Inbox/Pods-Inbox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Inbox/Pods-Inbox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Inbox/Pods-Inbox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		183E75651579D7A2FC650F1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Inbox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		118A18C5288DEF1200D69164 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				118A18D1288DEF1200D69164 /* ViewController.swift in Sources */,
+				118A18D1288DEF1200D69164 /* InboxVC.swift in Sources */,
 				118A18CD288DEF1200D69164 /* AppDelegate.swift in Sources */,
 				118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */,
+				118A18E4288DF7B200D69164 /* InboxVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		118A18D2288DEF1200D69164 /* Main.storyboard */ = {
+		118A18D2288DEF1200D69164 /* Inbox.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				118A18D3288DEF1200D69164 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Inbox.storyboard;
 			sourceTree = "<group>";
 		};
 		118A18D7288DEF1600D69164 /* LaunchScreen.storyboard */ = {
@@ -282,6 +410,7 @@
 		};
 		118A18DE288DEF1600D69164 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A659119DAD131D4F12CB9172 /* Pods-Inbox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -289,7 +418,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZ8Y5K272X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Inbox/Info.plist;
+				INFOPLIST_FILE = Inbox/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -310,6 +439,7 @@
 		};
 		118A18DF288DEF1600D69164 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73C4C4D2CDD75153AF40A575 /* Pods-Inbox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,7 +447,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZ8Y5K272X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Inbox/Info.plist;
+				INFOPLIST_FILE = Inbox/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

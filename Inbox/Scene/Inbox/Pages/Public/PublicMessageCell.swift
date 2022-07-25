@@ -30,7 +30,7 @@ class PublicMessageCell: UITableViewCell {
     
     @IBAction func shareTap(_ sender: UIButton) {
         guard currentItem != nil else { return }
-        let textToShare = [(currentItem!.title ?? "") + "\n" + (currentItem!.description ?? "")]
+        let textToShare = [(currentItem!.title ?? "") + "\n" + (currentItem!.desc ?? "")]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = vc?.view // so that iPads won't crash
         activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
@@ -53,7 +53,7 @@ class PublicMessageCell: UITableViewCell {
         self.vc = vc
         seeMoreDidTapHandler = moreTap
         titleLabel.text = item.title
-        bodyLabel.text = item.description
+        bodyLabel.text = item.desc
         if let url = item.url { img.af.setImage(withURL: url); img.isHidden = false }
         else { img.isHidden = true }
         self.isSeeLess = item.isExpanded ?? false

@@ -193,37 +193,37 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="gjE-cd-waE" customClass="PublicMessageCell" customModule="Inbox" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="218.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="192.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjE-cd-waE" id="S4M-b5-7fL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="218.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="192.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PV8-tV-K6g">
-                                                    <rect key="frame" x="20" y="11" width="374" height="196.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="170.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xSd-Rh-Nhb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="196.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="xSd-Rh-Nhb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="170.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fi4-QS-3qt" userLabel="header">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oTW-cg-mrs">
-                                                                            <rect key="frame" x="8" y="8" width="33" height="33"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark.outline" translatesAutoresizingMaskIntoConstraints="NO" id="oTW-cg-mrs">
+                                                                            <rect key="frame" x="8" y="8" width="24" height="24"/>
                                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="oTW-cg-mrs" secondAttribute="height" multiplier="1:1" id="U3K-fV-EDN"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareplay" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FIi-Ws-XxQ">
-                                                                            <rect key="frame" x="49" y="9" width="33" height="30.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share.outline" translatesAutoresizingMaskIntoConstraints="NO" id="FIi-Ws-XxQ">
+                                                                            <rect key="frame" x="40" y="8" width="24" height="24"/>
                                                                             <color key="tintColor" name="blackText"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="FIi-Ws-XxQ" secondAttribute="height" multiplier="1:1" id="TYQ-ok-pUA"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۱۴۰۰/۰۴/۱۰ - ۱۴:۶۰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCQ-85-1Fm">
-                                                                            <rect key="frame" x="253.5" y="8" width="112.5" height="33"/>
+                                                                            <rect key="frame" x="253.5" y="8" width="112.5" height="24"/>
                                                                             <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
                                                                             <color key="textColor" name="grayText"/>
                                                                             <nil key="highlightedColor"/>
@@ -232,7 +232,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="FIi-Ws-XxQ" secondAttribute="bottom" constant="8" id="2YL-8h-CDh"/>
-                                                                        <constraint firstAttribute="height" constant="49" id="49T-tD-X6F"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="49T-tD-X6F"/>
                                                                         <constraint firstItem="ZCQ-85-1Fm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FIi-Ws-XxQ" secondAttribute="trailing" constant="12" id="8An-g0-YGt"/>
                                                                         <constraint firstAttribute="trailing" secondItem="ZCQ-85-1Fm" secondAttribute="trailing" constant="8" id="MlF-Fc-1eb"/>
                                                                         <constraint firstAttribute="bottom" secondItem="ZCQ-85-1Fm" secondAttribute="bottom" constant="8" id="SmP-sa-x5w"/>
@@ -245,11 +245,14 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XG1-pj-BaE" userLabel="title">
-                                                                    <rect key="frame" x="0.0" y="49" width="374" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="46" width="374" height="42"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تیتر پیام" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXm-o6-4zL">
-                                                                            <rect key="frame" x="8" y="8" width="358" height="33"/>
+                                                                            <rect key="frame" x="8" y="8" width="358" height="26"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="26" id="tYR-j0-O6R"/>
+                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" name="YekanBakh-Bold" family="Yekan Bakh" pointSize="16"/>
                                                                             <color key="textColor" name="blackText"/>
                                                                             <nil key="highlightedColor"/>
@@ -259,26 +262,34 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="ZXm-o6-4zL" secondAttribute="bottom" constant="8" id="L08-Pn-8SK"/>
                                                                         <constraint firstAttribute="trailing" secondItem="ZXm-o6-4zL" secondAttribute="trailing" constant="8" id="LiB-fc-pwg"/>
-                                                                        <constraint firstAttribute="height" constant="49" id="fB2-Q0-rxs"/>
                                                                         <constraint firstItem="ZXm-o6-4zL" firstAttribute="top" secondItem="XG1-pj-BaE" secondAttribute="top" constant="8" id="mZT-EV-1jt"/>
                                                                         <constraint firstItem="ZXm-o6-4zL" firstAttribute="leading" secondItem="XG1-pj-BaE" secondAttribute="leading" constant="8" id="xOs-Kj-q8J"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKf-Hb-yMT" userLabel="body">
-                                                                    <rect key="frame" x="0.0" y="98" width="374" height="49.5"/>
+                                                                    <rect key="frame" x="0.0" y="94" width="374" height="28.5"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dvW-N3-K05">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dvW-N3-K05">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="28.5"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LC4-pC-L16">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="310" height="28.5"/>
                                                                                     <mutableString key="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،</mutableString>
                                                                                     <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
                                                                                     <color key="textColor" name="blackText"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="arrow.up.bin.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vex-cL-4Sc">
-                                                                                    <rect key="frame" x="350" y="16" width="24" height="17.5"/>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="vex-cL-4Sc">
+                                                                                    <rect key="frame" x="318" y="0.0" width="56" height="28.5"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="vex-cL-4Sc" secondAttribute="height" multiplier="6:3" id="Iyp-jW-rY9"/>
+                                                                                        <constraint firstAttribute="width" constant="56" id="N0W-TT-osx"/>
+                                                                                    </constraints>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                            <integer key="value" value="10"/>
+                                                                                        </userDefinedRuntimeAttribute>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </imageView>
                                                                             </subviews>
                                                                         </stackView>
@@ -292,34 +303,35 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTd-Sp-Xt2" userLabel="footer">
-                                                                    <rect key="frame" x="0.0" y="147.5" width="374" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="128.5" width="374" height="42"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-xE-KJj">
-                                                                            <rect key="frame" x="49" y="0.0" width="325" height="1"/>
-                                                                            <color key="backgroundColor" name="grayText"/>
+                                                                            <rect key="frame" x="42" y="0.0" width="332" height="1"/>
+                                                                            <color key="backgroundColor" name="lightGray"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="1" id="Szp-1u-75K"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اعتبار پیام" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-4B-NiU">
-                                                                            <rect key="frame" x="309" y="8" width="57" height="33"/>
+                                                                            <rect key="frame" x="309" y="8" width="57" height="26"/>
                                                                             <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
                                                                             <color key="textColor" name="grayText"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۱۴۰۰/۰۴/۱۰ - ۱۴:۶۰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-1u-7LR">
-                                                                            <rect key="frame" x="49" y="8" width="112.5" height="33"/>
+                                                                            <rect key="frame" x="42" y="8" width="112.5" height="26"/>
                                                                             <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
                                                                             <color key="textColor" name="grayText"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmi-Gn-g9R">
-                                                                            <rect key="frame" x="8" y="8" width="33" height="33"/>
+                                                                            <rect key="frame" x="8" y="8" width="26" height="26"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="hmi-Gn-g9R" secondAttribute="height" multiplier="1:1" id="8cx-2p-r2Q"/>
                                                                             </constraints>
+                                                                            <color key="tintColor" name="darkBlue"/>
                                                                             <state key="normal" title="Button"/>
-                                                                            <buttonConfiguration key="configuration" style="plain" image="arrow.down.app.fill" catalog="system"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" image="round.arrow.down"/>
                                                                             <connections>
                                                                                 <action selector="expandTapped:" destination="gjE-cd-waE" eventType="touchUpInside" id="qXc-WU-vJK"/>
                                                                             </connections>
@@ -336,7 +348,7 @@
                                                                         <constraint firstItem="hmi-Gn-g9R" firstAttribute="leading" secondItem="zTd-Sp-Xt2" secondAttribute="leading" constant="8" id="Siu-OW-Uf1"/>
                                                                         <constraint firstItem="UfW-1u-7LR" firstAttribute="leading" secondItem="hmi-Gn-g9R" secondAttribute="trailing" constant="8" id="Vk3-nn-NU7"/>
                                                                         <constraint firstAttribute="bottom" secondItem="hmi-Gn-g9R" secondAttribute="bottom" constant="8" id="YZd-Tk-1bZ"/>
-                                                                        <constraint firstAttribute="height" constant="49" id="bw6-Xj-ap4"/>
+                                                                        <constraint firstAttribute="height" constant="42" id="bw6-Xj-ap4"/>
                                                                         <constraint firstItem="UfW-1u-7LR" firstAttribute="top" secondItem="zTd-Sp-Xt2" secondAttribute="top" constant="8" id="edS-fp-krQ"/>
                                                                         <constraint firstAttribute="bottom" secondItem="UfW-1u-7LR" secondAttribute="bottom" constant="8" id="jb1-PX-dox"/>
                                                                         <constraint firstAttribute="bottom" secondItem="Pbd-4B-NiU" secondAttribute="bottom" constant="8" id="p8U-id-qNZ"/>
@@ -416,10 +428,10 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow.down.app.fill" catalog="system" width="128" height="114"/>
-        <image name="arrow.up.bin.fill" catalog="system" width="128" height="93"/>
-        <image name="bookmark" catalog="system" width="112" height="128"/>
-        <image name="shareplay" catalog="system" width="128" height="73"/>
+        <image name="mark.outline" width="60" height="80"/>
+        <image name="round.arrow.down" width="24" height="24"/>
+        <image name="sample" width="600" height="400"/>
+        <image name="share.outline" width="75" height="80"/>
         <namedColor name="blackText">
             <color red="0.031372549019607843" green="0.062745098039215685" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -434,6 +446,9 @@
         </namedColor>
         <namedColor name="lightBlue">
             <color red="0.81176470588235294" green="0.96078431372549022" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightGray">
+            <color red="0.81176470588235294" green="0.81176470588235294" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="0.93333333333333335" green="0.41568627450980394" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

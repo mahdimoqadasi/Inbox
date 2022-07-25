@@ -50,8 +50,9 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
                 cell.bodyStack.insertArrangedSubview(img, at: 0)
                 cell.bodyStack.axis = .vertical
             }
-            UIView.animate(withDuration: 0.25, delay: 0) {
+            UIView.animate(withDuration: 0.3, delay: 0) {
                 cell.layoutIfNeeded()
+                cell.toggleButton.transform = cell.toggleButton.transform.rotated(by: (180.0 * .pi) / 180.0)
                 self?.msgs[indexPath.row].isExpanded.toggle()
                 tableView.beginUpdates()
                 tableView.endUpdates()

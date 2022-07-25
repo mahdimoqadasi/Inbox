@@ -28,8 +28,8 @@ class ApiProvider {
                     print(">>>Request Success")
                     res = resModel
                     semaphore.signal()
-                case .failure:
-                    print(">>>Request Failed")
+                case .failure (let err):
+                    print(">>>Request Failed \(err.localizedDescription)")
                     semaphore.signal()
                 }
             }

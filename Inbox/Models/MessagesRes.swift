@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct MessagesRes: Codable {
+struct MessagesRes: Decodable {
     var messages: [Message]?
 }

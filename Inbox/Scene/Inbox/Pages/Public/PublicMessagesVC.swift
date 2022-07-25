@@ -84,7 +84,7 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
             UIView.animate(withDuration: 0.3, delay: 0) {
                 cell.layoutIfNeeded()
                 cell.toggleButton.transform = cell.toggleButton.transform.rotated(by: (180.0 * .pi) / 180.0)
-                self?.msgs[indexPath.row].isExpanded.toggle()
+                self?.msgs[indexPath.row].isExpanded?.toggle()
                 tableView.beginUpdates()
                 tableView.endUpdates()
             }

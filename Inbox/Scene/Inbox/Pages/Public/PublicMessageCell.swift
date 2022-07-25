@@ -35,8 +35,9 @@ class PublicMessageCell: UITableViewCell {
 
         titleLabel.text = item.title
         bodyLabel.text = item.description
-        if let url = item.url { img.af.setImage(withURL: url) }
-        self.isSeeLess = item.isExpanded
+        if let url = item.url { img.af.setImage(withURL: url); img.isHidden = false }
+        else { img.isHidden = true }
+        self.isSeeLess = item.isExpanded ?? false
         self.bodyLabel.numberOfLines = self.isSeeLess ? 0 : 1
     }
     

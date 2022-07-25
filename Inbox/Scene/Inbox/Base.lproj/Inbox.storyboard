@@ -208,40 +208,48 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fi4-QS-3qt" userLabel="header">
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark.outline" translatesAutoresizingMaskIntoConstraints="NO" id="oTW-cg-mrs">
-                                                                            <rect key="frame" x="8" y="8" width="24" height="24"/>
-                                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" secondItem="oTW-cg-mrs" secondAttribute="height" multiplier="1:1" id="U3K-fV-EDN"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share.outline" translatesAutoresizingMaskIntoConstraints="NO" id="FIi-Ws-XxQ">
-                                                                            <rect key="frame" x="40" y="8" width="24" height="24"/>
-                                                                            <color key="tintColor" name="blackText"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" secondItem="FIi-Ws-XxQ" secondAttribute="height" multiplier="1:1" id="TYQ-ok-pUA"/>
-                                                                            </constraints>
-                                                                        </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۱۴۰۰/۰۴/۱۰ - ۱۴:۶۰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCQ-85-1Fm">
                                                                             <rect key="frame" x="253.5" y="8" width="112.5" height="24"/>
                                                                             <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
                                                                             <color key="textColor" name="grayText"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-np-vhW" userLabel="mark">
+                                                                            <rect key="frame" x="8" y="8" width="24" height="24"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="Xdd-np-vhW" secondAttribute="height" multiplier="1:1" id="vb0-0Y-qKJ"/>
+                                                                            </constraints>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" image="mark.outline"/>
+                                                                            <connections>
+                                                                                <action selector="saveTap:" destination="gjE-cd-waE" eventType="touchUpInside" id="MxG-jg-GqU"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlj-17-H3C" userLabel="share">
+                                                                            <rect key="frame" x="40" y="8" width="24" height="24"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="Zlj-17-H3C" secondAttribute="height" multiplier="1:1" id="tPI-im-ZxU"/>
+                                                                            </constraints>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" image="share.outline"/>
+                                                                            <connections>
+                                                                                <action selector="shareTap:" destination="gjE-cd-waE" eventType="touchUpInside" id="DbR-Su-e4m"/>
+                                                                            </connections>
+                                                                        </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="bottom" secondItem="FIi-Ws-XxQ" secondAttribute="bottom" constant="8" id="2YL-8h-CDh"/>
                                                                         <constraint firstAttribute="height" constant="40" id="49T-tD-X6F"/>
-                                                                        <constraint firstItem="ZCQ-85-1Fm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FIi-Ws-XxQ" secondAttribute="trailing" constant="12" id="8An-g0-YGt"/>
+                                                                        <constraint firstItem="Zlj-17-H3C" firstAttribute="leading" secondItem="Xdd-np-vhW" secondAttribute="trailing" constant="8" id="4Zb-xP-HB9"/>
+                                                                        <constraint firstItem="Xdd-np-vhW" firstAttribute="leading" secondItem="fi4-QS-3qt" secondAttribute="leading" constant="8" id="7ci-Be-HZd"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Zlj-17-H3C" secondAttribute="bottom" constant="8" id="MCX-gd-EUK"/>
                                                                         <constraint firstAttribute="trailing" secondItem="ZCQ-85-1Fm" secondAttribute="trailing" constant="8" id="MlF-Fc-1eb"/>
+                                                                        <constraint firstItem="Zlj-17-H3C" firstAttribute="top" secondItem="fi4-QS-3qt" secondAttribute="top" constant="8" id="S0h-Ta-jHL"/>
                                                                         <constraint firstAttribute="bottom" secondItem="ZCQ-85-1Fm" secondAttribute="bottom" constant="8" id="SmP-sa-x5w"/>
+                                                                        <constraint firstItem="Zlj-17-H3C" firstAttribute="leading" secondItem="Xdd-np-vhW" secondAttribute="trailing" constant="8" symbolic="YES" id="WIX-oU-BXW"/>
                                                                         <constraint firstItem="ZCQ-85-1Fm" firstAttribute="top" secondItem="fi4-QS-3qt" secondAttribute="top" constant="8" id="YCV-fL-CSy"/>
-                                                                        <constraint firstItem="oTW-cg-mrs" firstAttribute="top" secondItem="fi4-QS-3qt" secondAttribute="top" constant="8" id="e0k-bk-Das"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="oTW-cg-mrs" secondAttribute="bottom" constant="8" id="hDx-do-VLi"/>
-                                                                        <constraint firstItem="FIi-Ws-XxQ" firstAttribute="leading" secondItem="oTW-cg-mrs" secondAttribute="trailing" constant="8" id="if7-dM-sem"/>
-                                                                        <constraint firstItem="oTW-cg-mrs" firstAttribute="leading" secondItem="fi4-QS-3qt" secondAttribute="leading" constant="8" id="oOt-2g-7II"/>
-                                                                        <constraint firstItem="FIi-Ws-XxQ" firstAttribute="top" secondItem="fi4-QS-3qt" secondAttribute="top" constant="8" id="qaY-lm-t3b"/>
+                                                                        <constraint firstItem="Xdd-np-vhW" firstAttribute="top" secondItem="fi4-QS-3qt" secondAttribute="top" constant="8" id="qVN-rB-z1m"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Xdd-np-vhW" secondAttribute="bottom" constant="8" id="svH-kq-0Gm"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XG1-pj-BaE" userLabel="title">
@@ -380,6 +388,8 @@
                                             <outlet property="dateLabel" destination="ZCQ-85-1Fm" id="j7E-Gp-JRJ"/>
                                             <outlet property="expireDateLabel" destination="UfW-1u-7LR" id="WWh-hU-xbY"/>
                                             <outlet property="img" destination="vex-cL-4Sc" id="b9O-cs-cLD"/>
+                                            <outlet property="saveButton" destination="Xdd-np-vhW" id="6tO-en-gww"/>
+                                            <outlet property="shareButton" destination="Zlj-17-H3C" id="qKI-XZ-qpt"/>
                                             <outlet property="titleLabel" destination="ZXm-o6-4zL" id="BDu-X1-zIi"/>
                                             <outlet property="toggleButton" destination="hmi-Gn-g9R" id="P3c-gR-emK"/>
                                         </connections>
@@ -429,10 +439,10 @@
         </designable>
     </designables>
     <resources>
-        <image name="mark.outline" width="60" height="80"/>
+        <image name="mark.outline" width="15" height="20"/>
         <image name="round.arrow.down" width="24" height="24"/>
         <image name="sample" width="600" height="400"/>
-        <image name="share.outline" width="75" height="80"/>
+        <image name="share.outline" width="19" height="20"/>
         <namedColor name="blackText">
             <color red="0.031372549019607843" green="0.062745098039215685" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

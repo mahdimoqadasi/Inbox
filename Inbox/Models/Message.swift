@@ -15,6 +15,7 @@ struct Message: Decodable {
     var unread: Bool?
     
     //local
-    var isExpanded: Bool? = false
+    var isExpanded: Bool?
+    var isSaved: Bool?
     var url: URL? { URL(string: image ?? "")}
 }

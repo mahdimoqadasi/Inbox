@@ -69,7 +69,7 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PublicMessageCell
         cell.selectionStyle = .none
         
-        cell.setup(msgs[indexPath.row]) { [weak self] in
+        cell.setup(msgs[indexPath.row], vc: self) { [weak self] in
             if cell.bodyStack.axis == .vertical {
                 let img = cell.bodyStack.arrangedSubviews[0]
                 cell.bodyStack.removeArrangedSubview(img)

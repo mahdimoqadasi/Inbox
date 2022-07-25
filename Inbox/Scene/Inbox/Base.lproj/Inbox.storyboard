@@ -274,7 +274,7 @@
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LC4-pC-L16">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="310" height="28.5"/>
-                                                                                    <mutableString key="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،</mutableString>
+                                                                                    <string key="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،</string>
                                                                                     <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
                                                                                     <color key="textColor" name="blackText"/>
                                                                                     <nil key="highlightedColor"/>
@@ -379,6 +379,7 @@
                                             <outlet property="bodyStack" destination="dvW-N3-K05" id="w5z-aM-kZw"/>
                                             <outlet property="dateLabel" destination="ZCQ-85-1Fm" id="j7E-Gp-JRJ"/>
                                             <outlet property="expireDateLabel" destination="UfW-1u-7LR" id="WWh-hU-xbY"/>
+                                            <outlet property="img" destination="vex-cL-4Sc" id="b9O-cs-cLD"/>
                                             <outlet property="titleLabel" destination="ZXm-o6-4zL" id="BDu-X1-zIi"/>
                                             <outlet property="toggleButton" destination="hmi-Gn-g9R" id="P3c-gR-emK"/>
                                         </connections>

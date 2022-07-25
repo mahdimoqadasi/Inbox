@@ -13,15 +13,46 @@ class PublicMessagesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for _ in 0...5 {
-            self.msgs.append(Message())
-        }
-        
         self.tableView.estimatedRowHeight = 233
         tableView.delegate = self
         tableView.dataSource = self
+        addRefreshControl()
+        loadNewItems()
     }
+    
+    @objc private func loadNewItems() {
+//        statusLabel.text = Strings.loading.rawValue
+        var res: MessagesRes?
+        DispatchQueue.global(qos: .userInitiated).async {
+            res = ApiProvider.shared.load()
+            DispatchQueue.main.async {
+                self.tableView?.refreshControl?.endRefreshing()
+//                self.statusLabel.text = Strings.noItem.rawValue
+//                guard res?.err == nil else {
+//                    Messages.show(theme: .error, msg: res!.err!)
+//                    return
+//                }
+//                guard let items = res?.items else {
+//                    Messages.show(theme: .error, msg: Strings.loadingErr.rawValue)
+//                    return
+//                }
+                self.updateRequestsTable(res?.messages ?? [])
+            }
+        }
+    }
+    
+    private func updateRequestsTable(_ newMessages: [Message]) {
+        msgs = newMessages
+        tableView.reloadData()
+//        emptyListView.isHidden = !newRequests.isEmpty
+    }
+
+    private func addRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadNewItems), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+
 }
 extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
     

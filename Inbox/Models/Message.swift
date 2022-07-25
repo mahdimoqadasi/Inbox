@@ -8,11 +8,13 @@
 import Foundation
 
 struct Message: Codable {
-    var sentDate: String?
     var title: String?
-    var body: String?
-    var imageUrl: String?
-    var expireDate: String?
+    var description: String?
+    var image: String?
+    var id: String?
+    var unread: String?
     
+    //local
     var isExpanded: Bool = false
+    var url: URL? { URL(string: image ?? "")}
 }

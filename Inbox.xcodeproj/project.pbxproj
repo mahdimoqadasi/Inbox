@@ -26,6 +26,8 @@
 		118A1904288E167800D69164 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1903288E167800D69164 /* UIColor+Extensions.swift */; };
 		118A1907288E2E2100D69164 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1906288E2E2000D69164 /* Message.swift */; };
 		118A1909288E2F1E00D69164 /* PublicMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1908288E2F1E00D69164 /* PublicMessageCell.swift */; };
+		118A190B288E581D00D69164 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A190A288E581B00D69164 /* ApiProvider.swift */; };
+		118A190D288E597B00D69164 /* MessagesRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A190C288E597B00D69164 /* MessagesRes.swift */; };
 		D157E6092381D99127E772CA /* Pods_Inbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		118A1903288E167800D69164 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		118A1906288E2E2000D69164 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		118A1908288E2F1E00D69164 /* PublicMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicMessageCell.swift; sourceTree = "<group>"; };
+		118A190A288E581B00D69164 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
+		118A190C288E597B00D69164 /* MessagesRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRes.swift; sourceTree = "<group>"; };
 		69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C4C4D2CDD75153AF40A575 /* Pods-Inbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inbox.release.xcconfig"; path = "Target Support Files/Pods-Inbox/Pods-Inbox.release.xcconfig"; sourceTree = "<group>"; };
 		A659119DAD131D4F12CB9172 /* Pods-Inbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inbox.debug.xcconfig"; path = "Target Support Files/Pods-Inbox/Pods-Inbox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 		118A18E6288DF7BE00D69164 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				118A190A288E581B00D69164 /* ApiProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				118A1906288E2E2000D69164 /* Message.swift */,
+				118A190C288E597B00D69164 /* MessagesRes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,7 +377,9 @@
 				118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */,
 				118A1907288E2E2100D69164 /* Message.swift in Sources */,
 				118A18E4288DF7B200D69164 /* InboxVM.swift in Sources */,
+				118A190B288E581D00D69164 /* ApiProvider.swift in Sources */,
 				118A18EC288DFB5500D69164 /* PagesController.swift in Sources */,
+				118A190D288E597B00D69164 /* MessagesRes.swift in Sources */,
 				118A18F0288DFC3F00D69164 /* PublicMessagesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PublicMessageCell: UITableViewCell {
 
+    @IBOutlet weak var img: UIImageView!
     var currentItem: Message?
     @IBOutlet weak var bodyStack: UIStackView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -30,27 +32,22 @@ class PublicMessageCell: UITableViewCell {
     func setup(_ item: Message, _ moreTap: @escaping (() -> Void)) {
         currentItem = item
         seeMoreDidTapHandler = moreTap
-//        self.userNameLabel.text = review.title
-//        self.memberSinceLabel.text = review.memberSince
-//        self.descLabel.text = review.description
-//        self.dateLabel.text = review.date
-        
+
+        titleLabel.text = item.title
+        bodyLabel.text = item.description
+        if let url = item.url { img.af.setImage(withURL: url) }
         self.isSeeLess = item.isExpanded
         self.bodyLabel.numberOfLines = self.isSeeLess ? 0 : 1
-//        self.seeMoreButton.setTitle(self.isSeeLess ? "See less" : "See more", for: .normal)
     }
     
     @IBAction func expandTapped(_ sender: Any) {
         self.isSeeLess.toggle()
         self.bodyLabel.numberOfLines = self.isSeeLess ? 0 : 1
         self.bodyLabel.layoutIfNeeded()
-//        self.seeMoreButton.setTitle(self.isSeeLess ? "See less" : "See more", for: .normal)
         self.seeMoreDidTapHandler?()
     }
 
     func onSeeMoreDidTap(_ handler: @escaping () -> Void) {
-        
         self.seeMoreDidTapHandler = handler
     }
-
 }

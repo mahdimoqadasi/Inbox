@@ -10,11 +10,12 @@ import UIKit
 class PublicMessageCell: UITableViewCell {
 
     var currentItem: Message?
+    @IBOutlet weak var bodyStack: UIStackView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var expireDateLabel: UILabel!
-    @IBOutlet weak var toggleButton: UIImageView!
+    @IBOutlet weak var toggleButton: UIButton!
     private var isSeeLess = true
     private var seeMoreDidTapHandler: (() -> Void)?
     

@@ -250,7 +250,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تیتر پیام" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXm-o6-4zL">
                                                                             <rect key="frame" x="8" y="8" width="358" height="33"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <fontDescription key="fontDescription" name="YekanBakh-Regular" family="Yekan Bakh" pointSize="16"/>
+                                                                            <fontDescription key="fontDescription" name="YekanBakh-Bold" family="Yekan Bakh" pointSize="16"/>
                                                                             <color key="textColor" name="blackText"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -278,14 +278,9 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="arrow.up.bin.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vex-cL-4Sc">
-                                                                                    <rect key="frame" x="350" y="9" width="24" height="31"/>
+                                                                                    <rect key="frame" x="350" y="16" width="24" height="17.5"/>
                                                                                 </imageView>
                                                                             </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="vex-cL-4Sc" firstAttribute="leading" secondItem="LC4-pC-L16" secondAttribute="trailing" constant="8" id="4FC-e0-F3G"/>
-                                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vex-cL-4Sc" secondAttribute="bottom" constant="8" id="DO9-eA-Yt1"/>
-                                                                                <constraint firstItem="vex-cL-4Sc" firstAttribute="top" secondItem="dvW-N3-K05" secondAttribute="top" constant="8" id="YDE-th-a1d"/>
-                                                                            </constraints>
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -369,9 +364,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bodyLabel" destination="LC4-pC-L16" id="a1x-za-a7f"/>
+                                            <outlet property="bodyStack" destination="dvW-N3-K05" id="w5z-aM-kZw"/>
                                             <outlet property="dateLabel" destination="ZCQ-85-1Fm" id="j7E-Gp-JRJ"/>
                                             <outlet property="expireDateLabel" destination="UfW-1u-7LR" id="WWh-hU-xbY"/>
                                             <outlet property="titleLabel" destination="ZXm-o6-4zL" id="BDu-X1-zIi"/>
+                                            <outlet property="toggleButton" destination="hmi-Gn-g9R" id="P3c-gR-emK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

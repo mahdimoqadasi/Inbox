@@ -39,9 +39,24 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         cell.setup(msgs[indexPath.row]) { [weak self] in
-            self?.msgs[indexPath.row].isExpanded.toggle()
-            tableView.beginUpdates()
-            tableView.endUpdates()
+            if cell.bodyStack.axis == .vertical {
+                let img = cell.bodyStack.arrangedSubviews[0]
+                cell.bodyStack.removeArrangedSubview(img)
+                cell.bodyStack.insertArrangedSubview(img, at: 1)
+                cell.bodyStack.axis = .horizontal
+            } else if cell.bodyStack.axis == .horizontal {
+                let img = cell.bodyStack.arrangedSubviews[1]
+                cell.bodyStack.removeArrangedSubview(img)
+                cell.bodyStack.insertArrangedSubview(img, at: 0)
+                cell.bodyStack.axis = .vertical
+            }
+            UIView.animate(withDuration: 0.25, delay: 0) {
+                cell.layoutIfNeeded()
+                self?.msgs[indexPath.row].isExpanded.toggle()
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+                        
         }
         return cell
     }

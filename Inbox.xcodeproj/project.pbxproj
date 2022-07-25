@@ -24,6 +24,8 @@
 		118A1900288E160700D69164 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18FF288E160700D69164 /* Strings.swift */; };
 		118A1902288E164800D69164 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1901288E164800D69164 /* UIFont+Extensions.swift */; };
 		118A1904288E167800D69164 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1903288E167800D69164 /* UIColor+Extensions.swift */; };
+		118A1907288E2E2100D69164 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1906288E2E2000D69164 /* Message.swift */; };
+		118A1909288E2F1E00D69164 /* PublicMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1908288E2F1E00D69164 /* PublicMessageCell.swift */; };
 		D157E6092381D99127E772CA /* Pods_Inbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		118A18FF288E160700D69164 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		118A1901288E164800D69164 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		118A1903288E167800D69164 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		118A1906288E2E2000D69164 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		118A1908288E2F1E00D69164 /* PublicMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicMessageCell.swift; sourceTree = "<group>"; };
 		69F1235AB82F503161B1F1F1 /* Pods_Inbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C4C4D2CDD75153AF40A575 /* Pods-Inbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inbox.release.xcconfig"; path = "Target Support Files/Pods-Inbox/Pods-Inbox.release.xcconfig"; sourceTree = "<group>"; };
 		A659119DAD131D4F12CB9172 /* Pods-Inbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inbox.debug.xcconfig"; path = "Target Support Files/Pods-Inbox/Pods-Inbox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 				118A18E9288DF7D700D69164 /* Extensions */,
 				118A18E6288DF7BE00D69164 /* Services */,
 				118A18E7288DF7C500D69164 /* Utils */,
+				118A1905288E2DF200D69164 /* Models */,
 				118A18F3288DFFE800D69164 /* Resources */,
 				118A18E0288DF1B400D69164 /* SupportingFiles */,
 			);
@@ -190,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				118A18EF288DFC3F00D69164 /* PublicMessagesVC.swift */,
+				118A1908288E2F1E00D69164 /* PublicMessageCell.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -218,6 +224,14 @@
 				118A18FF288E160700D69164 /* Strings.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		118A1905288E2DF200D69164 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				118A1906288E2E2000D69164 /* Message.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1DCD75EF7FFB0310EE9AF9E5 /* Frameworks */ = {
@@ -351,9 +365,11 @@
 				118A1900288E160700D69164 /* Strings.swift in Sources */,
 				118A18CD288DEF1200D69164 /* AppDelegate.swift in Sources */,
 				118A18FE288E15D900D69164 /* AppTheme.swift in Sources */,
+				118A1909288E2F1E00D69164 /* PublicMessageCell.swift in Sources */,
 				118A18FB288E156A00D69164 /* StatefulButton.swift in Sources */,
 				118A1904288E167800D69164 /* UIColor+Extensions.swift in Sources */,
 				118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */,
+				118A1907288E2E2100D69164 /* Message.swift in Sources */,
 				118A18E4288DF7B200D69164 /* InboxVM.swift in Sources */,
 				118A18EC288DFB5500D69164 /* PagesController.swift in Sources */,
 				118A18F0288DFC3F00D69164 /* PublicMessagesVC.swift in Sources */,

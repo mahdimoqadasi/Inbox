@@ -7,11 +7,12 @@
 
 import UIKit
 
-class PublicMessagesVC: UIViewController {
+class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
     private var vm = InboxVM()
+    private var selectionEnabled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,27 @@ class PublicMessagesVC: UIViewController {
     }
     
     private func setup() {
+        setupMultiRemove()
         setupList()
+    }
+    
+    private func setupMultiRemove() {
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressGesture.minimumPressDuration = 1.0 // 1 second press
+        longPressGesture.delegate = self
+        self.tableView.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc private func handleLongPress() {
+        selectionEnabled = true
+        selectionEnabled = true
+        tableView.visibleCells.forEach { cell in
+            UIView.animate(withDuration: 0.5, delay: 0) {
+                let c = (cell as! PublicMessageCell)
+                c.checkButton?.isHidden = false
+                c.checkButton?.alpha = 1
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +99,7 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PublicMessageCell
         cell.selectionStyle = .none
-        cell.setup(msgs[indexPath.row], vc: self) { state, msg in
+        cell.setup(msgs[indexPath.row], vc: self, selectionEnabled: selectionEnabled) { state, msg in
             self.vm.saveMsg(msg, saveState: state)
         }
         return cell

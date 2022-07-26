@@ -10,6 +10,8 @@ import AlamofireImage
 
 class PublicMessageCell: UITableViewCell {
 
+    private var isChecked = false
+    @IBOutlet weak var checkButton: UIButton?
     private var currentItem: Message?
     private var vc: UIViewController?
     @IBOutlet weak var saveButton: UIButton!
@@ -23,9 +25,16 @@ class PublicMessageCell: UITableViewCell {
     @IBOutlet weak var toggleButton: UIButton!
     private var isSeeLess = true
     private var saveTap: ((Bool, Message) -> Void)?
-    
+    private var checkBoxTap: ((Bool, Message) -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    @IBAction func checkBoxTapped(_ sender: UIButton) {
+        isChecked.toggle()
+        let img = isChecked ? UIImage(named: "checkBox.checked") : UIImage(named: "checkBox.unchecked")
+        checkButton?.setImage(img, for: .normal)
     }
     
     @IBAction func shareTap(_ sender: UIButton) {
@@ -53,19 +62,25 @@ class PublicMessageCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    @IBOutlet weak var selectionItemsStackView: UIStackView!
     
     func setup(_ item: Message,
                vc: UIViewController,
+               selectionEnabled: Bool = false,
+               checkBoxTap: ((Bool, Message) -> Void)? = nil,
                _ saveTap: @escaping ((Bool, Message) -> Void)) {
         currentItem = item
         titleLabel.text = item.title
         bodyLabel.text = item.desc
         updateSavedImage(isSaved: item.isSaved ?? false)
         self.saveTap = saveTap
+        self.checkBoxTap = checkBoxTap
         if let url = item.url { img.af.setImage(withURL: url); img.isHidden = false }
         else { img.isHidden = true }
         self.isSeeLess = item.isExpanded ?? false
         self.bodyLabel.numberOfLines = self.isSeeLess ? 0 : 1
+        self.checkButton?.isHidden = !selectionEnabled
+        self.checkButton?.alpha = selectionEnabled ? 1 : 0
     }
     
     @IBAction func expandTapped(_ sender: Any) {

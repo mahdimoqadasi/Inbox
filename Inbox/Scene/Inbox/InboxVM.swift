@@ -8,16 +8,34 @@
 import Foundation
 
 struct InboxVM {
+    
+    var unreadCount: Int {
+        let msgsDao = RealmDB.MsgsDao()
+        do { return try msgsDao.unreadCount() }
+        catch { return 0 }
+    }
         
     var localMsgs: [Message] {
         let msgsDao = RealmDB.MsgsDao()
-        do { return try Array(msgsDao.getAll()) }
+        do {
+            var finalList: [Message] = []
+            let msgs = try Array(msgsDao.getAll())
+            msgs.forEach { if $0.unread == true { finalList.append($0) } }
+            msgs.forEach { if $0.unread != true { finalList.append($0) } }
+            return finalList
+        }
         catch { return [] }
     }
     
     var localSavedMsgs: [Message] {
         let msgsDao = RealmDB.MsgsDao()
-        do { return try Array(msgsDao.getMsgs(withState: true)) }
+        do {
+            var finalList: [Message] = []
+            let msgs = try Array(msgsDao.getMsgs(withState: true))
+            msgs.forEach { if $0.unread == true { finalList.append($0) } }
+            msgs.forEach { if $0.unread != true { finalList.append($0) } }
+            return finalList
+        }
         catch { return [] }
     }
 

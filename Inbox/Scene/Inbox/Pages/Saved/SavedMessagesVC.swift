@@ -9,6 +9,7 @@ import UIKit
 
 class SavedMessagesVC: UIViewController {
 
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
     private var vm = InboxVM()
@@ -37,9 +38,9 @@ class SavedMessagesVC: UIViewController {
     
     @objc private func updateMsgsTable() {
         msgs = vm.localSavedMsgs
+        emptyView.isHidden = !msgs.isEmpty
         tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-//        emptyListView.isHidden = !newRequests.isEmpty
     }
     
     private func addRefreshControl() {
@@ -69,6 +70,7 @@ extension SavedMessagesVC: UITableViewDelegate, UITableViewDataSource {
             if state == false {
                 self.msgs = self.vm.localSavedMsgs
                 tableView.deleteRows(at: [tableView.indexPath(for: cell)!], with: .automatic)
+                self.emptyView.isHidden = !self.msgs.isEmpty
             }
         }
         return cell

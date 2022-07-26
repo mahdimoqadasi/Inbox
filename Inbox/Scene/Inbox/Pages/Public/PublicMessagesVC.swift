@@ -9,6 +9,7 @@ import UIKit
 
 class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
     private var msgsToRemove: [Message] = []
@@ -23,15 +24,20 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
                     c.checkButton?.isHidden = !self.selectionEnabled
                     c.checkButton?.alpha = self.selectionEnabled ? 1 : 0
                     if !self.selectionEnabled { c.isChecked = false; c.updateCheckboxImage(isChecked: c.isSelected) }
-                    if self.selectionEnabled { self.tableView.refreshControl = nil } else { self.addRefreshControl() }
                     if !self.selectionEnabled { self.msgsToRemove.removeAll(); self.indexesToRemove.removeAll() }
-                    guard self.removeButtonShowed != self.selectionEnabled else { return }
-                    self.removeButtonSection.transform = self.removeButtonSection.transform.translatedBy(x: 0, y: self.selectionEnabled ? -100 : 100)
-                    self.removeButtonShowed = self.selectionEnabled
+                    self.updateRemoveButtons()
                 }
             }
         }
     }
+    
+    private func updateRemoveButtons() {
+        guard self.removeButtonShowed != self.selectionEnabled else { return }
+        self.removeButtonSection.transform = self.removeButtonSection.transform.translatedBy(x: 0, y: self.selectionEnabled ? -100 : 100)
+        self.removeButtonShowed = self.selectionEnabled
+        if self.selectionEnabled { self.tableView.refreshControl = nil } else { self.addRefreshControl() }
+    }
+    
     @IBOutlet weak var removeButtonSection: UIView!
     
     override func viewDidLoad() {
@@ -48,9 +54,12 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
         vm.deleteMsgs(msgsToRemove)
         msgs = vm.localMsgs
         tableView.deleteRows(at: indexesToRemove, with: .automatic)
+        emptyView.isHidden = !msgs.isEmpty
+        (parent!.parent as! InboxVC).badge.text = String(vm.unreadCount).toPersianNumber
         indexesToRemove.removeAll()
         msgsToRemove.removeAll()
         selectionEnabled = false
+        updateRemoveButtons()
     }
     
     @IBAction func cancelRemoveTap(_ sender: UIButton) {
@@ -83,8 +92,10 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func updateLocally() {
-        self.msgs = self.vm.localMsgs
-        self.tableView.reloadData()
+        msgs = vm.localMsgs
+        emptyView.isHidden = !msgs.isEmpty
+        tableView.reloadData()
+        (parent!.parent as! InboxVC).badge.text = String(vm.unreadCount).toPersianNumber
     }
     
     @objc private func loadNewItems() {
@@ -93,17 +104,11 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
             let wasSuccessful = self.vm.updateList(localMsgs: self.msgs)
             DispatchQueue.main.async {
                 self.tableView?.refreshControl?.endRefreshing()
-                if wasSuccessful { self.updateMsgsTable() }
+                if wasSuccessful { self.updateLocally() }
             }
         }
     }
     
-    private func updateMsgsTable() {
-        msgs = vm.localMsgs
-        tableView.reloadData()
-//        emptyListView.isHidden = !newRequests.isEmpty
-    }
-
     private func addRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadNewItems), for: .valueChanged)

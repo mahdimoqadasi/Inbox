@@ -49,6 +49,7 @@ class InboxVC: UIViewController {
         lastIndex = newIndex
         let width = UIScreen.main.bounds.width / 2
         let amount = newIndex == 0 ? -width : width
+        badge.backgroundColor = newIndex != 1 ? AppTheme.Color.blackText50 : AppTheme.Color.red
         
         UIView.animate(withDuration: 0.25) {
             self.indicator.transform = self.indicator.transform.translatedBy(x: CGFloat(amount), y: 0)

@@ -53,6 +53,7 @@ class PublicMessageCell: UITableViewCell {
         updateSavedImage(isSaved: newState)
         saveTap?(newState, currentItem!)
     }
+    @IBOutlet weak var cardBack: UIView!
     
     private func updateSavedImage(isSaved: Bool) {
         let newImage = isSaved ? UIImage(named: "mark.filled")! : UIImage(named: "mark.outline")!
@@ -67,7 +68,7 @@ class PublicMessageCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    @IBOutlet weak var selectionItemsStackView: UIStackView!
+    @IBOutlet weak var selectionItemsStackView: UIStackView?
     
     func setup(_ item: Message,
                vc: UIViewController,
@@ -87,9 +88,10 @@ class PublicMessageCell: UITableViewCell {
         self.bodyLabel.numberOfLines = self.isSeeLess ? 0 : 1
         self.checkButton?.isHidden = !selectionEnabled
         self.checkButton?.alpha = selectionEnabled ? 1 : 0
-        selectionItemsStackView.layoutIfNeeded()
+        selectionItemsStackView?.layoutIfNeeded()
         self.isChecked = checked
         updateCheckboxImage(isChecked: checked)
+        self.cardBack.backgroundColor = (item.unread ?? false) ? AppTheme.Color.unreadBack : AppTheme.Color.white
         print(">>>CELL: selecting enabled: \(selectionEnabled)")
     }
     

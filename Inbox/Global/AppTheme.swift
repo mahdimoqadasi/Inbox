@@ -17,6 +17,8 @@ struct AppTheme {
         static let lightBlue = UIColor(named: "lightBlue")
         static let red = UIColor(named: "red")
         static let whiteBack = UIColor(named: "whiteBack")
+        static let unreadBack = UIColor(named: "unreadBack")
+        static let white = UIColor.white
     }
     
     struct Dimention {

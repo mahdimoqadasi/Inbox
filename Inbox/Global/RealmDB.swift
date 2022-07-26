@@ -20,13 +20,13 @@ class RealmDB {
         func getAll() throws -> Results<Message> {
             print(">>>Thread is Main:(getAll) \(Thread.isMainThread)")
             print(">>>Count: \(realm.objects(Message.self).count)")
-            return realm.objects(Message.self)
+            return realm.objects(Message.self).sorted(byKeyPath: "id", ascending: false)
         }
         
         func getMsgs(withState state: Bool) throws -> Results<Message> {
             print(">>>Thread is Main:(getMsgs) \(Thread.isMainThread)")
             let predicate = NSPredicate(format: "isSaved == %@", NSNumber(value: state))
-            return realm.objects(Message.self).filter(predicate)
+            return realm.objects(Message.self).filter(predicate).sorted(byKeyPath: "id", ascending: false)
         }
         
         func update(obj: Message, saveState: Bool) throws {
@@ -43,6 +43,11 @@ class RealmDB {
         func remove(_ msgs: [Message]) throws {
             print(">>>Thread is Main:(remove) \(Thread.isMainThread)")
             try realm.write { realm.delete(msgs) }
+        }
+        
+        func unreadCount() throws -> Int {
+            let predicate = NSPredicate(format: "unread == %@", NSNumber(value: true))
+            return realm.objects(Message.self).filter(predicate).count
         }
     }
 }

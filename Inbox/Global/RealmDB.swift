@@ -10,33 +10,37 @@ import RealmSwift
 
 class RealmDB {
     struct MsgsDao {
-        static func addAll(requests: [Message]) throws {
-            let realm = try Realm()
-            try realm.write { realm.add(requests, update: .all) }
+        private let realm = try! Realm()
+        
+        func addAll(_ msgs: [Message]) throws {
+            print(">>>Thread is Main:(addAll) \(Thread.isMainThread)")
+            try realm.write { realm.add(msgs, update: .error) }
         }
         
-        static func getAll() throws -> Results<Message> {
-            return try Realm().objects(Message.self)
+        func getAll() throws -> Results<Message> {
+            print(">>>Thread is Main:(getAll) \(Thread.isMainThread)")
+            return realm.objects(Message.self)
         }
         
-        static func getMsgs(withState state: Bool) throws -> Results<Message> {
-                let predicate = NSPredicate(format: "isSaved == %@", NSNumber(value: state))
-                return try Realm().objects(Message.self).filter(predicate)
-            }
+        func getMsgs(withState state: Bool) throws -> Results<Message> {
+            print(">>>Thread is Main:(getMsgs) \(Thread.isMainThread)")
+            let predicate = NSPredicate(format: "isSaved == %@", NSNumber(value: state))
+            return realm.objects(Message.self).filter(predicate)
+        }
         
-        static func update(obj: Message, saveState: Bool) throws {
-            let realm = try Realm()
+        func update(obj: Message, saveState: Bool) throws {
+            print(">>>Thread is Main:(update) \(Thread.isMainThread)")
             try realm.write { obj.isSaved = saveState }
         }
         
-        static func removeAll() throws {
-            let realm = try Realm()
+        func removeAll() throws {
+            print(">>>Thread is Main:(removeAll) \(Thread.isMainThread)")
             let reqs = realm.objects(Message.self)
             try realm.write { realm.delete(reqs) }
         }
         
-        static func remove(_ msg: Message) throws {
-            let realm = try Realm()
+        func remove(_ msg: Message) throws {
+            print(">>>Thread is Main:(remove) \(Thread.isMainThread)")
             try realm.write { realm.delete(msg) }
         }
     }

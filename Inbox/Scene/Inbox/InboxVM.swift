@@ -41,5 +41,9 @@ struct InboxVM {
         let msgsDao = RealmDB.MsgsDao()
         try? msgsDao.update(obj: msg, saveState: saveState)
     }
-
+    
+    func deleteMsgs(_ msgs: [Message]) {
+        let msgsDao = RealmDB.MsgsDao()
+        try? msgsDao.remove(msgs)
+    }
 }

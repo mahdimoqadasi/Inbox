@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113B8285288FA20A00F45683 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B8284288FA20A00F45683 /* UIView+Extensions.swift */; };
 		118A18CD288DEF1200D69164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18CC288DEF1200D69164 /* AppDelegate.swift */; };
 		118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18CE288DEF1200D69164 /* SceneDelegate.swift */; };
 		118A18D1288DEF1200D69164 /* InboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18D0288DEF1200D69164 /* InboxVC.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		113B8284288FA20A00F45683 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		118A18C9288DEF1200D69164 /* Inbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118A18CC288DEF1200D69164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118A18CE288DEF1200D69164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				118A1901288E164800D69164 /* UIFont+Extensions.swift */,
 				118A1903288E167800D69164 /* UIColor+Extensions.swift */,
+				113B8284288FA20A00F45683 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				118A1904288E167800D69164 /* UIColor+Extensions.swift in Sources */,
 				118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */,
 				118A1907288E2E2100D69164 /* Message.swift in Sources */,
+				113B8285288FA20A00F45683 /* UIView+Extensions.swift in Sources */,
 				118A18E4288DF7B200D69164 /* InboxVM.swift in Sources */,
 				118A190B288E581D00D69164 /* ApiProvider.swift in Sources */,
 				118A18EC288DFB5500D69164 /* PagesController.swift in Sources */,

@@ -11,8 +11,24 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
+    private var msgsToRemove: IndexPath = []
     private var vm = InboxVM()
-    private var selectionEnabled = false
+    private var removeButtonShowed = false
+    private var selectionEnabled = false {
+        didSet {
+            tableView.visibleCells.forEach { cell in
+                UIView.animate(withDuration: 0.5, delay: 0) {
+                    let c = (cell as! PublicMessageCell)
+                    c.checkButton?.isHidden = !self.selectionEnabled
+                    c.checkButton?.alpha = self.selectionEnabled ? 1 : 0
+                    guard self.removeButtonShowed != self.selectionEnabled else { return }
+                    self.removeButtonSection.transform = self.removeButtonSection.transform.translatedBy(x: 0, y: self.selectionEnabled ? -100 : 100)
+                    self.removeButtonShowed = self.selectionEnabled
+                }
+            }
+        }
+    }
+    @IBOutlet weak var removeButtonSection: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +40,13 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
         setupList()
     }
     
+    @IBAction func removeTap(_ sender: UIButton) {
+    }
+    
+    @IBAction func cancelRemoveTap(_ sender: UIButton) {
+        selectionEnabled = false
+    }
+    
     private func setupMultiRemove() {
         let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressGesture.minimumPressDuration = 1.0 // 1 second press
@@ -33,14 +56,6 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc private func handleLongPress() {
         selectionEnabled = true
-        selectionEnabled = true
-        tableView.visibleCells.forEach { cell in
-            UIView.animate(withDuration: 0.5, delay: 0) {
-                let c = (cell as! PublicMessageCell)
-                c.checkButton?.isHidden = false
-                c.checkButton?.alpha = 1
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

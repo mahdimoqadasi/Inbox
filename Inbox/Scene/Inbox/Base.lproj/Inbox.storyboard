@@ -428,17 +428,81 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpS-RF-T6X" userLabel="removeButonSection">
+                                <rect key="frame" x="0.0" y="896" width="414" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Lje-yj-Ahk">
+                                        <rect key="frame" x="8" y="8" width="398" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ss3-gu-Pn1">
+                                                <rect key="frame" x="0.0" y="0.0" width="193" height="46"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="حذف">
+                                                    <fontDescription key="titleFontDescription" name="YekanBakh-Bold" family="Yekan Bakh" pointSize="16"/>
+                                                    <color key="baseForegroundColor" name="orange"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="orange"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="removeTap:" destination="kHX-gU-Uxr" eventType="touchUpInside" id="X0C-Kv-mAR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21I-QW-kQg">
+                                                <rect key="frame" x="205" y="0.0" width="193" height="46"/>
+                                                <color key="backgroundColor" name="orange"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="انصراف">
+                                                    <fontDescription key="titleFontDescription" name="YekanBakh-Bold" family="Yekan Bakh" pointSize="16"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelRemoveTap:" destination="kHX-gU-Uxr" eventType="touchUpInside" id="qp5-bL-J2V"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="Qh9-8F-2pt"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="whiteBack"/>
+                                <constraints>
+                                    <constraint firstItem="Lje-yj-Ahk" firstAttribute="top" secondItem="OpS-RF-T6X" secondAttribute="top" constant="8" id="MQ7-iD-V2o"/>
+                                    <constraint firstItem="Lje-yj-Ahk" firstAttribute="leading" secondItem="OpS-RF-T6X" secondAttribute="leading" constant="8" id="UVk-8C-0K8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lje-yj-Ahk" secondAttribute="trailing" constant="8" id="gNH-9n-Ab4"/>
+                                    <constraint firstAttribute="height" constant="100" id="wrN-wh-aLA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cqg-pQ-biO"/>
                         <color key="backgroundColor" name="whiteBack"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="GVE-R6-q55" secondAttribute="bottom" id="1Pq-ds-4bi"/>
                             <constraint firstItem="GVE-R6-q55" firstAttribute="leading" secondItem="Cqg-pQ-biO" secondAttribute="leading" id="CGD-GD-uPN"/>
+                            <constraint firstItem="OpS-RF-T6X" firstAttribute="leading" secondItem="Cqg-pQ-biO" secondAttribute="leading" id="Mxv-OJ-1ed"/>
                             <constraint firstItem="GVE-R6-q55" firstAttribute="top" secondItem="f6e-GY-B5u" secondAttribute="top" id="Y7X-55-gtr"/>
+                            <constraint firstItem="Cqg-pQ-biO" firstAttribute="trailing" secondItem="OpS-RF-T6X" secondAttribute="trailing" id="nfT-sC-3QF"/>
+                            <constraint firstAttribute="bottom" secondItem="OpS-RF-T6X" secondAttribute="bottom" constant="-100" id="vmF-k4-0tt"/>
                             <constraint firstItem="Cqg-pQ-biO" firstAttribute="trailing" secondItem="GVE-R6-q55" secondAttribute="trailing" id="w9X-57-Qqw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="removeButtonSection" destination="OpS-RF-T6X" id="ksP-kD-ln7"/>
                         <outlet property="tableView" destination="GVE-R6-q55" id="equ-Fz-kEY"/>
                     </connections>
                 </viewController>
@@ -721,6 +785,9 @@
         </namedColor>
         <namedColor name="lightGray">
             <color red="0.81176470588235294" green="0.81176470588235294" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="1" green="0.53333333333333333" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="0.93333333333333335" green="0.41568627450980394" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

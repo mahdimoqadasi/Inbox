@@ -11,7 +11,8 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
-    private var msgsToRemove: IndexPath = []
+    private var msgsToRemove: [Message] = []
+    private var indexesToRemove: [IndexPath] = []
     private var vm = InboxVM()
     private var removeButtonShowed = false
     private var selectionEnabled = false {
@@ -21,6 +22,9 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
                     let c = (cell as! PublicMessageCell)
                     c.checkButton?.isHidden = !self.selectionEnabled
                     c.checkButton?.alpha = self.selectionEnabled ? 1 : 0
+                    if !self.selectionEnabled { c.isChecked = false; c.updateCheckboxImage(isChecked: c.isSelected) }
+                    if self.selectionEnabled { self.tableView.refreshControl = nil } else { self.addRefreshControl() }
+                    if !self.selectionEnabled { self.msgsToRemove.removeAll(); self.indexesToRemove.removeAll() }
                     guard self.removeButtonShowed != self.selectionEnabled else { return }
                     self.removeButtonSection.transform = self.removeButtonSection.transform.translatedBy(x: 0, y: self.selectionEnabled ? -100 : 100)
                     self.removeButtonShowed = self.selectionEnabled
@@ -41,6 +45,12 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func removeTap(_ sender: UIButton) {
+        vm.deleteMsgs(msgsToRemove)
+        msgs = vm.localMsgs
+        tableView.deleteRows(at: indexesToRemove, with: .automatic)
+        indexesToRemove.removeAll()
+        msgsToRemove.removeAll()
+        selectionEnabled = false
     }
     
     @IBAction func cancelRemoveTap(_ sender: UIButton) {
@@ -78,6 +88,7 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc private func loadNewItems() {
+        selectionEnabled = false
         DispatchQueue.global(qos: .userInitiated).async {
             let wasSuccessful = self.vm.updateList(localMsgs: self.msgs)
             DispatchQueue.main.async {
@@ -114,9 +125,23 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PublicMessageCell
         cell.selectionStyle = .none
-        cell.setup(msgs[indexPath.row], vc: self, selectionEnabled: selectionEnabled) { state, msg in
-            self.vm.saveMsg(msg, saveState: state)
+        cell.setup(msgs[indexPath.row],
+                   vc: self,
+                   selectionEnabled: selectionEnabled,
+                   checked: indexesToRemove.contains(indexPath),
+                   checkBoxTap: { self.itemSelect($0, $1, tableView.indexPath(for: cell)!) }) {
+            self.vm.saveMsg($1, saveState: $0)
         }
         return cell
     }
-}
+    
+    func itemSelect(_ checked: Bool, _ msg: Message, _ index: IndexPath) {
+        if checked {
+            msgsToRemove.append(msg)
+            indexesToRemove.append(index)
+        } else {
+            msgsToRemove.remove(at: msgsToRemove.firstIndex(of: msg)!)
+            indexesToRemove.remove(at: indexesToRemove.firstIndex(of: index)!)
+        }
+    }
+ }

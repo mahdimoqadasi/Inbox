@@ -19,6 +19,7 @@ class RealmDB {
         
         func getAll() throws -> Results<Message> {
             print(">>>Thread is Main:(getAll) \(Thread.isMainThread)")
+            print(">>>Count: \(realm.objects(Message.self).count)")
             return realm.objects(Message.self)
         }
         
@@ -39,9 +40,9 @@ class RealmDB {
             try realm.write { realm.delete(reqs) }
         }
         
-        func remove(_ msg: Message) throws {
+        func remove(_ msgs: [Message]) throws {
             print(">>>Thread is Main:(remove) \(Thread.isMainThread)")
-            try realm.write { realm.delete(msg) }
+            try realm.write { realm.delete(msgs) }
         }
     }
 }

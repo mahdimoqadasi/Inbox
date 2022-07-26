@@ -22,7 +22,7 @@ class PublicMessageCell: UITableViewCell {
     @IBOutlet weak var expireDateLabel: UILabel!
     @IBOutlet weak var toggleButton: UIButton!
     private var isSeeLess = true
-    private var saveTap: ((Bool) -> Void)?
+    private var saveTap: ((Bool, Message) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,9 +41,13 @@ class PublicMessageCell: UITableViewCell {
         guard currentItem != nil else { return }
         let newState = !(currentItem!.isSaved == true)
 //        if currentItem!.isSaved != true { currentItem!.isSaved = true } else { currentItem!.isSaved = false }
-        let newImage = newState ? UIImage(named: "mark.filled")! : UIImage(named: "mark.outline")!
-        sender.setImage(newImage, for: .normal)
-        saveTap?(newState)
+        updateSavedImage(isSaved: newState)
+        saveTap?(newState, currentItem!)
+    }
+    
+    private func updateSavedImage(isSaved: Bool) {
+        let newImage = isSaved ? UIImage(named: "mark.filled")! : UIImage(named: "mark.outline")!
+        saveButton.setImage(newImage, for: .normal)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -52,10 +56,11 @@ class PublicMessageCell: UITableViewCell {
     
     func setup(_ item: Message,
                vc: UIViewController,
-               _ saveTap: @escaping ((Bool) -> Void)) {
+               _ saveTap: @escaping ((Bool, Message) -> Void)) {
         currentItem = item
         titleLabel.text = item.title
         bodyLabel.text = item.desc
+        updateSavedImage(isSaved: item.isSaved ?? false)
         self.saveTap = saveTap
         if let url = item.url { img.af.setImage(withURL: url); img.isHidden = false }
         else { img.isHidden = true }

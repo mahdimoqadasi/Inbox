@@ -9,21 +9,69 @@ import UIKit
 
 class SavedMessagesVC: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    private var msgs: [Message] = []
+    private var vm = InboxVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setup() {
+        setupList()
     }
-    */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateMsgsTable()
+    }
+
+    private func setupList() {
+        self.tableView.estimatedRowHeight = 233
+        tableView.delegate = self
+        tableView.dataSource = self
+        addRefreshControl()
+        updateMsgsTable()
+    }
+    
+    @objc private func updateMsgsTable() {
+        msgs = vm.localSavedMsgs
+        tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
+//        emptyListView.isHidden = !newRequests.isEmpty
+    }
+    
+    private func addRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(updateMsgsTable), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
 
 }
+
+extension SavedMessagesVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.msgs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PublicMessageCell
+        cell.selectionStyle = .none
+        cell.setup(msgs[indexPath.row], vc: self) { state, msg in
+            self.vm.saveMsg(msg, saveState: state)
+            if state == false {
+                self.msgs = self.vm.localSavedMsgs
+                tableView.deleteRows(at: [tableView.indexPath(for: cell)!], with: .automatic)
+            }
+        }
+        return cell
+    }
+}
+

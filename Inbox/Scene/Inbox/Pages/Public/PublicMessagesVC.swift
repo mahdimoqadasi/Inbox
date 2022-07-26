@@ -22,18 +22,23 @@ class PublicMessagesVC: UIViewController {
         setupList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateLocally()
+    }
+    
     private func setupList() {
         self.tableView.estimatedRowHeight = 233
         tableView.delegate = self
         tableView.dataSource = self
         addRefreshControl()
-//        DispatchQueue.global(qos: .userInitiated).async {
-        self.msgs = self.vm.localMsgs
-//            DispatchQueue.main.async {
-                self.tableView.reloadData()
-//            }
-//        }
+        updateLocally()
         loadNewItems()
+    }
+    
+    private func updateLocally() {
+        self.msgs = self.vm.localMsgs
+        self.tableView.reloadData()
     }
     
     @objc private func loadNewItems() {
@@ -41,12 +46,12 @@ class PublicMessagesVC: UIViewController {
             let wasSuccessful = self.vm.updateList(localMsgs: self.msgs)
             DispatchQueue.main.async {
                 self.tableView?.refreshControl?.endRefreshing()
-                if wasSuccessful { self.updateRequestsTable() }
+                if wasSuccessful { self.updateMsgsTable() }
             }
         }
     }
     
-    private func updateRequestsTable() {
+    private func updateMsgsTable() {
         msgs = vm.localMsgs
         tableView.reloadData()
 //        emptyListView.isHidden = !newRequests.isEmpty
@@ -73,8 +78,8 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PublicMessageCell
         cell.selectionStyle = .none
-        cell.setup(msgs[indexPath.row], vc: self) { state in
-            self.vm.saveMsg(self.msgs[indexPath.row], saveState: state)
+        cell.setup(msgs[indexPath.row], vc: self) { state, msg in
+            self.vm.saveMsg(msg, saveState: state)
         }
         return cell
     }

@@ -15,6 +15,12 @@ struct InboxVM {
         catch { return [] }
     }
     
+    var localSavedMsgs: [Message] {
+        let msgsDao = RealmDB.MsgsDao()
+        do { return try Array(msgsDao.getMsgs(withState: true)) }
+        catch { return [] }
+    }
+
     func updateList(localMsgs: [Message]) -> Bool {
         let res = ApiProvider.shared.load()
         guard let newMsgs = res?.messages else { return false }

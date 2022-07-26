@@ -6,15 +6,27 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Message: Decodable {
-    var title: String?
-    var description: String?
-    var image: String?
-    var id: String?
-    var unread: Bool?
+class Message: Object, Decodable {
+    @Persisted(primaryKey: true) var id: String?
+    @Persisted var title: String?
+    @Persisted var desc: String?
+    @Persisted var image: String?
+    @Persisted var unread: Bool?
     
     //local
-    var isExpanded: Bool? = false
+    @Persisted var isSaved: Bool?
+    var isExpanded: Bool?
     var url: URL? { URL(string: image ?? "")}
+}
+
+extension Message {
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case title = "title"
+        case desc = "description"
+        case image = "image"
+        case unread = "unread"
+    }
 }

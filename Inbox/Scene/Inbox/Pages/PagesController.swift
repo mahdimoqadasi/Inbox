@@ -12,9 +12,14 @@ class PagesController: UIPageViewController {
     let sb = UIStoryboard(name: "Inbox", bundle: nil)
     var currentIndex = 1
     var indexDidChange: ((Int) -> Void)? //should set for inform indicator
+    var badgeUpdater: BadgeUpdater?
     
-    lazy var orderedVCs: [UIViewController] = [sb.instantiateViewController(withIdentifier: "SavedMessagesVC") as! SavedMessagesVC,
-                                               sb.instantiateViewController(withIdentifier: "PublicMessagesVC") as! PublicMessagesVC]
+    var orderedVCs: [UIViewController] {
+        let savedMsgs = sb.instantiateViewController(withIdentifier: "SavedMessagesVC")
+        let publicMsgs = sb.instantiateViewController(withIdentifier: "PublicMessagesVC") as! PublicMessagesVC
+        publicMsgs.badgeUpdater = badgeUpdater
+        return [savedMsgs, publicMsgs]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +27,7 @@ class PagesController: UIPageViewController {
         delegate = self
         setViewControllers([orderedVCs.last!], direction: .forward, animated: true, completion: nil)
     }
-    
+        
     func setControllerWithIndex(index: Int,direction: UIPageViewController.NavigationDirection ){
         setViewControllers([orderedVCs[index]], direction: direction, animated: true, completion: nil)
     }

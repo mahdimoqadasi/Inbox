@@ -7,14 +7,13 @@
 
 import UIKit
 
-class InboxVC: UIViewController {
-    
+class InboxVC: UIViewController, BadgeUpdater {
     @IBOutlet weak var PublicButton: StatefulButton!
     @IBOutlet weak var savedButton: StatefulButton!
     @IBOutlet weak var badge: UILabel!
     @IBOutlet weak var pagesContainer: UIView!
     @IBOutlet weak var indicator: UIView!
-    var pages = PagesController(transitionStyle:UIPageViewController.TransitionStyle.scroll,
+    var pagesController = PagesController(transitionStyle:UIPageViewController.TransitionStyle.scroll,
                                 navigationOrientation:UIPageViewController.NavigationOrientation.horizontal,
                                 options: nil)
     
@@ -28,10 +27,11 @@ class InboxVC: UIViewController {
     }
     
     private func addPageController() {
-        self.addChild(pages)
-        pages.view.frame = CGRect(x: 0, y: 0, width: self.pagesContainer.frame.width, height: self.pagesContainer.frame.height)
-        self.pagesContainer.addSubview(pages.view)
-        pages.indexDidChange = tabIndexChanged
+        self.pagesController.badgeUpdater = self
+        self.addChild(pagesController)
+        pagesController.view.frame = CGRect(x: 0, y: 0, width: self.pagesContainer.frame.width, height: self.pagesContainer.frame.height)
+        self.pagesContainer.addSubview(pagesController.view)
+        pagesController.indexDidChange = tabIndexChanged
     }
 
     private func tabIndexChanged(_ newIndex: Int) {
@@ -39,7 +39,7 @@ class InboxVC: UIViewController {
     }
     
     @IBAction func clickOnTab(_ sender: UIButton) {
-        pages.setControllerWithIndex(index: sender.tag, direction: sender.tag == 0 ? .reverse : .forward)
+        pagesController.setControllerWithIndex(index: sender.tag, direction: sender.tag == 0 ? .reverse : .forward)
         updateIndicator(sender.tag)
     }
     
@@ -58,4 +58,11 @@ class InboxVC: UIViewController {
         }
     }
     
+    func updateBadge(_ text: String) {
+        badge.text = text
+    }
+}
+
+protocol BadgeUpdater {
+    func updateBadge(_ text: String)
 }

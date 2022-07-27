@@ -9,6 +9,7 @@ import UIKit
 
 class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     
+    var badgeUpdater: BadgeUpdater?
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
@@ -55,7 +56,7 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
         msgs = vm.localMsgs
         tableView.deleteRows(at: indexesToRemove, with: .automatic)
         emptyView.isHidden = !msgs.isEmpty
-        (parent!.parent as! InboxVC).badge.text = String(vm.unreadCount).toPersianNumber
+        badgeUpdater?.updateBadge(String(vm.unreadCount).toPersianNumber)
         indexesToRemove.removeAll()
         msgsToRemove.removeAll()
         selectionEnabled = false
@@ -95,7 +96,7 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
         msgs = vm.localMsgs
         emptyView.isHidden = !msgs.isEmpty
         tableView.reloadData()
-        (parent!.parent as! InboxVC).badge.text = String(vm.unreadCount).toPersianNumber
+        badgeUpdater?.updateBadge(String(vm.unreadCount).toPersianNumber)
     }
     
     @objc private func loadNewItems() {

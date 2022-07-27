@@ -34,6 +34,11 @@ class RealmDB {
             try realm.write { obj.isSaved = saveState }
         }
         
+        func read(obj: Message) throws {
+            print(">>>Thread is Main:(read) \(Thread.isMainThread)")
+            try realm.write { obj.unread = false }
+        }
+
         func removeAll() throws {
             print(">>>Thread is Main:(removeAll) \(Thread.isMainThread)")
             let reqs = realm.objects(Message.self)

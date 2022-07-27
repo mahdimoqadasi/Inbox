@@ -12,7 +12,7 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
     var badgeUpdater: BadgeUpdater?
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    private var msgs: [Message] = []
+    private var msgs: [Message] = [] { didSet { self.updateBadge() } }
     private var msgsToRemove: [Message] = []
     private var indexesToRemove: [IndexPath] = []
     private var vm = InboxVM()
@@ -51,12 +51,15 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
         setupList()
     }
     
+    private func updateBadge() {
+        badgeUpdater?.updateBadge(String(vm.unreadCount).toPersianNumber)
+    }
+    
     @IBAction func removeTap(_ sender: UIButton) {
         vm.deleteMsgs(msgsToRemove)
         msgs = vm.localMsgs
         tableView.deleteRows(at: indexesToRemove, with: .automatic)
         emptyView.isHidden = !msgs.isEmpty
-        badgeUpdater?.updateBadge(String(vm.unreadCount).toPersianNumber)
         indexesToRemove.removeAll()
         msgsToRemove.removeAll()
         selectionEnabled = false
@@ -96,7 +99,6 @@ class PublicMessagesVC: UIViewController, UIGestureRecognizerDelegate {
         msgs = vm.localMsgs
         emptyView.isHidden = !msgs.isEmpty
         tableView.reloadData()
-        badgeUpdater?.updateBadge(String(vm.unreadCount).toPersianNumber)
     }
     
     @objc private func loadNewItems() {
@@ -135,7 +137,8 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
                    vc: self,
                    selectionEnabled: selectionEnabled,
                    checked: indexesToRemove.contains(indexPath),
-                   checkBoxTap: { self.itemSelect($0, $1, tableView.indexPath(for: cell)!) }) {
+                   checkBoxTap: { self.itemSelect($0, $1, tableView.indexPath(for: cell)!) },
+                   didExpand: { self.didExpand($0, tableView.indexPath(for: cell)!) }) {
             self.vm.saveMsg($1, saveState: $0)
         }
         return cell
@@ -149,5 +152,11 @@ extension PublicMessagesVC: UITableViewDelegate, UITableViewDataSource {
             msgsToRemove.remove(at: msgsToRemove.firstIndex(of: msg)!)
             indexesToRemove.remove(at: indexesToRemove.firstIndex(of: index)!)
         }
+    }
+    
+    func didExpand(_ msg: Message, _ index: IndexPath) {
+        vm.msgRead(msg)
+        (tableView.cellForRow(at: index) as! PublicMessageCell).updateBackColor()
+        updateBadge()
     }
  }

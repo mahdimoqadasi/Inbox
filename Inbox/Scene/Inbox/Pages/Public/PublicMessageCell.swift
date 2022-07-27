@@ -26,6 +26,7 @@ class PublicMessageCell: UITableViewCell {
     private var isSeeLess = true
     private var saveTap: ((Bool, Message) -> Void)?
     private var checkBoxTap: ((Bool, Message) -> Void)?
+    private var didExpand: ((Message) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -75,6 +76,7 @@ class PublicMessageCell: UITableViewCell {
                selectionEnabled: Bool = false,
                checked: Bool = false,
                checkBoxTap: ((Bool, Message) -> Void)? = nil,
+               didExpand: ((Message) -> Void)? = nil,
                _ saveTap: @escaping ((Bool, Message) -> Void)) {
         currentItem = item
         self.vc = vc
@@ -82,18 +84,23 @@ class PublicMessageCell: UITableViewCell {
         bodyLabel.text = item.desc
         updateSavedImage(isSaved: item.isSaved ?? false)
         self.saveTap = saveTap
+        self.didExpand = didExpand
         self.checkBoxTap = checkBoxTap
         if let url = item.url { img.af.setImage(withURL: url); img.isHidden = false }
         else { img.isHidden = true }
-        self.isSeeLess = item.isExpanded ?? false
+        self.isSeeLess = item.isExpanded
         self.bodyLabel.numberOfLines = self.isSeeLess ? 0 : 1
         self.checkButton?.isHidden = !selectionEnabled
         self.checkButton?.alpha = selectionEnabled ? 1 : 0
         selectionItemsStackView?.layoutIfNeeded()
         self.isChecked = checked
         updateCheckboxImage(isChecked: checked)
-        self.cardBack.backgroundColor = (item.unread ?? false) ? AppTheme.Color.unreadBack : AppTheme.Color.white
+        updateBackColor()
         print(">>>CELL: selecting enabled: \(selectionEnabled)")
+    }
+    
+    func updateBackColor() {
+        self.cardBack.backgroundColor = (currentItem!.unread ?? false) ? AppTheme.Color.unreadBack : AppTheme.Color.white
     }
     
     @IBAction func expandTapped(_ sender: Any) {
@@ -120,7 +127,7 @@ class PublicMessageCell: UITableViewCell {
             self.tableView?.beginUpdates()
             self.tableView?.endUpdates()
         }
-
+        didExpand?(currentItem!)
     }    
 }
 

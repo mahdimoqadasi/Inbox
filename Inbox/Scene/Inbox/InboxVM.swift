@@ -64,4 +64,10 @@ struct InboxVM {
         let msgsDao = RealmDB.MsgsDao()
         try? msgsDao.remove(msgs)
     }
+    
+    func msgRead(_ msg: Message) {
+        let msgsDao = RealmDB.MsgsDao()
+        try? msgsDao.read(obj: msg)
+    }
+    
 }

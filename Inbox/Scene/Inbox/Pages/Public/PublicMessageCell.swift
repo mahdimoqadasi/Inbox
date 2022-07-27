@@ -77,6 +77,7 @@ class PublicMessageCell: UITableViewCell {
                checkBoxTap: ((Bool, Message) -> Void)? = nil,
                _ saveTap: @escaping ((Bool, Message) -> Void)) {
         currentItem = item
+        self.vc = vc
         titleLabel.text = item.title
         bodyLabel.text = item.desc
         updateSavedImage(isSaved: item.isSaved ?? false)

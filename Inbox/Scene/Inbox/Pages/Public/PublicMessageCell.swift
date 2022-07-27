@@ -114,7 +114,7 @@ class PublicMessageCell: UITableViewCell {
             self.layoutIfNeeded()
             self.bodyLabel.layoutIfNeeded()
             self.toggleButton.transform = self.toggleButton.transform.rotated(by: (180.0 * .pi) / 180.0)
-            self.currentItem?.isExpanded?.toggle()
+            self.currentItem?.isExpanded.toggle()
             
             self.tableView?.beginUpdates()
             self.tableView?.endUpdates()

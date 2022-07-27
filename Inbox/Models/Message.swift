@@ -17,7 +17,7 @@ class Message: Object, Decodable {
     
     //local
     @Persisted var isSaved: Bool?
-    var isExpanded: Bool?
+    var isExpanded: Bool = false
     var url: URL? { URL(string: image ?? "")}
 }
 

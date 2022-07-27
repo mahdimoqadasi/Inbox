@@ -15,8 +15,9 @@ class PagesController: UIPageViewController {
     var badgeUpdater: BadgeUpdater?
     
     var orderedVCs: [UIViewController] {
-        let savedMsgs = sb.instantiateViewController(withIdentifier: "SavedMessagesVC")
+        let savedMsgs = sb.instantiateViewController(withIdentifier: "SavedMessagesVC") as! SavedMessagesVC
         let publicMsgs = sb.instantiateViewController(withIdentifier: "PublicMessagesVC") as! PublicMessagesVC
+        savedMsgs.badgeUpdater = badgeUpdater
         publicMsgs.badgeUpdater = badgeUpdater
         return [savedMsgs, publicMsgs]
     }

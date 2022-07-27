@@ -8,11 +8,12 @@
 import UIKit
 
 class SavedMessagesVC: UIViewController {
-
+    
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     private var msgs: [Message] = []
     private var vm = InboxVM()
+    var badgeUpdater: BadgeUpdater?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,15 @@ class SavedMessagesVC: UIViewController {
         setupList()
     }
     
+    private func updateBadge() {
+        badgeUpdater?.updateBadge(String(vm.unreadCount).toPersianNumber)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateMsgsTable()
     }
-
+    
     private func setupList() {
         self.tableView.estimatedRowHeight = 233
         tableView.delegate = self
@@ -48,7 +53,7 @@ class SavedMessagesVC: UIViewController {
         refreshControl.addTarget(self, action: #selector(updateMsgsTable), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
-
+    
 }
 
 extension SavedMessagesVC: UITableViewDelegate, UITableViewDataSource {
@@ -65,7 +70,7 @@ extension SavedMessagesVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PublicMessageCell
         cell.selectionStyle = .none
-        cell.setup(msgs[indexPath.row], vc: self) { state, msg in
+        cell.setup(msgs[indexPath.row], vc: self, didExpand: { self.didExpand($0, tableView.indexPath(for: cell)!) }) { state, msg in
             self.vm.saveMsg(msg, saveState: state)
             if state == false {
                 self.msgs = self.vm.localSavedMsgs
@@ -75,5 +80,12 @@ extension SavedMessagesVC: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func didExpand(_ msg: Message, _ index: IndexPath) {
+        vm.msgRead(msg)
+        (tableView.cellForRow(at: index) as! PublicMessageCell).updateBackColor()
+        updateBadge()
+    }
+
 }
 

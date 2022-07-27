@@ -8,9 +8,8 @@
 import UIKit
 
 class InboxVC: UIViewController, BadgeUpdater {
-    @IBOutlet weak var PublicButton: StatefulButton!
-    @IBOutlet weak var savedButton: StatefulButton!
-    @IBOutlet weak var badge: UILabel!
+    @IBOutlet weak var publicButton: TabButton!
+    @IBOutlet weak var savedButton: TabButton!
     @IBOutlet weak var pagesContainer: UIView!
     @IBOutlet weak var indicator: UIView!
     var pagesController = PagesController(transitionStyle:UIPageViewController.TransitionStyle.scroll,
@@ -37,10 +36,15 @@ class InboxVC: UIViewController, BadgeUpdater {
     private func tabIndexChanged(_ newIndex: Int) {
         updateIndicator(newIndex)
     }
+        
+    @IBAction func tapSavedTab(_ sender: Any) {
+        pagesController.setControllerWithIndex(index: 0, direction: .reverse)
+        updateIndicator(0)
+    }
     
-    @IBAction func clickOnTab(_ sender: UIButton) {
-        pagesController.setControllerWithIndex(index: sender.tag, direction: sender.tag == 0 ? .reverse : .forward)
-        updateIndicator(sender.tag)
+    @IBAction func tapPublicTab(_ sender: Any) {
+        pagesController.setControllerWithIndex(index: 1, direction: .forward)
+        updateIndicator(1)
     }
     
     var lastIndex = 1
@@ -49,17 +53,16 @@ class InboxVC: UIViewController, BadgeUpdater {
         lastIndex = newIndex
         let width = UIScreen.main.bounds.width / 2
         let amount = newIndex == 0 ? -width : width
-        badge.backgroundColor = newIndex != 1 ? AppTheme.Color.blackText50 : AppTheme.Color.red
         
         UIView.animate(withDuration: 0.25) {
             self.indicator.transform = self.indicator.transform.translatedBy(x: CGFloat(amount), y: 0)
-            if newIndex == 0 { self.savedButton.setStyle(.enabled); self.PublicButton.setStyle(.disabled)}
-            else { self.savedButton.setStyle(.disabled); self.PublicButton.setStyle(.enabled) }
+            self.savedButton.titleEnabled = newIndex == 0
+            self.publicButton.titleEnabled = !self.savedButton.titleEnabled
         }
     }
     
     func updateBadge(_ text: String) {
-        badge.text = text
+        publicButton.badgeText = text
     }
 }
 

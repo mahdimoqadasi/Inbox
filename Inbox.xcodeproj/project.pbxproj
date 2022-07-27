@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		113B8285288FA20A00F45683 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B8284288FA20A00F45683 /* UIView+Extensions.swift */; };
 		113B8287288FBA9E00F45683 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B8286288FBA9E00F45683 /* String+Extensions.swift */; };
+		1188CD552891879300E8B02D /* TabButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1188CD542891879300E8B02D /* TabButton.xib */; };
 		118A18CD288DEF1200D69164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18CC288DEF1200D69164 /* AppDelegate.swift */; };
 		118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18CE288DEF1200D69164 /* SceneDelegate.swift */; };
 		118A18D1288DEF1200D69164 /* InboxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18D0288DEF1200D69164 /* InboxVC.swift */; };
@@ -21,7 +22,7 @@
 		118A18F2288DFC5200D69164 /* SavedMessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18F1288DFC5200D69164 /* SavedMessagesVC.swift */; };
 		118A18F6288E001100D69164 /* yekanbakh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 118A18F5288E001100D69164 /* yekanbakh.ttf */; };
 		118A18F8288E039000D69164 /* yekanbakhb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 118A18F7288E039000D69164 /* yekanbakhb.ttf */; };
-		118A18FB288E156A00D69164 /* StatefulButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18FA288E156A00D69164 /* StatefulButton.swift */; };
+		118A18FB288E156A00D69164 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18FA288E156A00D69164 /* TabButton.swift */; };
 		118A18FE288E15D900D69164 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18FD288E15D900D69164 /* AppTheme.swift */; };
 		118A1900288E160700D69164 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A18FF288E160700D69164 /* Strings.swift */; };
 		118A1902288E164800D69164 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118A1901288E164800D69164 /* UIFont+Extensions.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		113B8284288FA20A00F45683 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		113B8286288FBA9E00F45683 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		1188CD542891879300E8B02D /* TabButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabButton.xib; sourceTree = "<group>"; };
 		118A18C9288DEF1200D69164 /* Inbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Inbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118A18CC288DEF1200D69164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		118A18CE288DEF1200D69164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +53,7 @@
 		118A18F1288DFC5200D69164 /* SavedMessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMessagesVC.swift; sourceTree = "<group>"; };
 		118A18F5288E001100D69164 /* yekanbakh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yekanbakh.ttf; sourceTree = "<group>"; };
 		118A18F7288E039000D69164 /* yekanbakhb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yekanbakhb.ttf; sourceTree = "<group>"; };
-		118A18FA288E156A00D69164 /* StatefulButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulButton.swift; sourceTree = "<group>"; };
+		118A18FA288E156A00D69164 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		118A18FD288E15D900D69164 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		118A18FF288E160700D69164 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		118A1901288E164800D69164 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -170,7 +172,8 @@
 		118A18E8288DF7CE00D69164 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				118A18FA288E156A00D69164 /* StatefulButton.swift */,
+				118A18FA288E156A00D69164 /* TabButton.swift */,
+				1188CD542891879300E8B02D /* TabButton.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				118A18D9288DEF1600D69164 /* LaunchScreen.storyboard in Resources */,
+				1188CD552891879300E8B02D /* TabButton.xib in Resources */,
 				118A18D6288DEF1600D69164 /* Assets.xcassets in Resources */,
 				118A18F8288E039000D69164 /* yekanbakhb.ttf in Resources */,
 				118A18D4288DEF1200D69164 /* Inbox.storyboard in Resources */,
@@ -382,7 +386,7 @@
 				118A18CD288DEF1200D69164 /* AppDelegate.swift in Sources */,
 				118A18FE288E15D900D69164 /* AppTheme.swift in Sources */,
 				118A1909288E2F1E00D69164 /* PublicMessageCell.swift in Sources */,
-				118A18FB288E156A00D69164 /* StatefulButton.swift in Sources */,
+				118A18FB288E156A00D69164 /* TabButton.swift in Sources */,
 				118A1904288E167800D69164 /* UIColor+Extensions.swift in Sources */,
 				118A18CF288DEF1200D69164 /* SceneDelegate.swift in Sources */,
 				118A1907288E2E2100D69164 /* Message.swift in Sources */,

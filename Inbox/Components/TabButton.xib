@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="yekanbakhb.ttf">
+            <string>YekanBakh-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabButton" customModule="Inbox" customModuleProvider="target">
+            <connections>
+                <outlet property="badge" destination="dyO-6w-4wu" id="2Bk-uM-CmO"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="nSx-Yh-9v3"/>
+                <outlet property="title" destination="65a-22-Fkt" id="PXF-RR-Jaq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="127" height="47"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TNc-ah-5wF">
+                    <rect key="frame" x="29.5" y="14.5" width="68" height="18"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="۰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyO-6w-4wu">
+                            <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                            <color key="backgroundColor" name="red"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="D7T-sm-wxz"/>
+                                <constraint firstAttribute="width" constant="18" id="Ell-kp-jWT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="YekanBakh-Bold" family="Yekan Bakh" pointSize="10"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="9"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عمومی" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65a-22-Fkt">
+                            <rect key="frame" x="26" y="0.0" width="42" height="18"/>
+                            <fontDescription key="fontDescription" name="YekanBakh-Bold" family="Yekan Bakh" pointSize="16"/>
+                            <color key="textColor" name="blackText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="TNc-ah-5wF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v94-qc-xzg"/>
+                <constraint firstItem="TNc-ah-5wF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wct-tb-C06"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-228.2608695652174" y="298.99553571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="blackText">
+            <color red="0.031372549019607843" green="0.062745098039215685" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="0.93333333333333335" green="0.41568627450980394" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
